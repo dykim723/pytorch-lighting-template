@@ -1,2 +1,15 @@
 lit-mlp-mnist/lightning_logs/
 lit-mlp-mnist/MNIST/raw/
+data/FashionMNIST/FashionMNIST/raw/t10k-images-idx3-ubyte
+data/FashionMNIST/FashionMNIST/raw/t10k-images-idx3-ubyte.gz
+data/FashionMNIST/FashionMNIST/raw/t10k-labels-idx1-ubyte
+data/FashionMNIST/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz
+data/FashionMNIST/FashionMNIST/raw/train-images-idx3-ubyte
+data/FashionMNIST/FashionMNIST/raw/train-images-idx3-ubyte.gz
+data/FashionMNIST/FashionMNIST/raw/train-labels-idx1-ubyte
+data/FashionMNIST/FashionMNIST/raw/train-labels-idx1-ubyte.gz
+lit-ae-fashion-mnist/FashionMNIST/raw/train-images-idx3-ubyte.gz
+lit-ae-fashion-mnist/lightning_logs/version_0/events.out.tfevents.1665159402.MacBook-Pro.local.72241.0
+lit-ae-fashion-mnist/lightning_logs/version_0/events.out.tfevents.1665159403.MacBook-Pro.local.72241.1
+lit-ae-fashion-mnist/lightning_logs/version_0/hparams.yaml
+lit-ae-fashion-mnist/lightning_logs/version_0/checkpoints/epoch=0-step=1719.ckpt
