@@ -63,7 +63,8 @@ class LitCNN(pl.LightningModule):
         self.evaluate(batch, "test")
 
     def configure_optimizers(self):
-        optimizer = torch.optim.SGD(self.parameters(), lr=1e-3)
+        # optimizer = torch.optim.SGD(self.parameters(), lr=1e-3)
+        optimizer = torch.optim.Adam(self.parameters(), lr=1e-2)
         return optimizer
     
     def predict_step(self, batch, batch_idx):
