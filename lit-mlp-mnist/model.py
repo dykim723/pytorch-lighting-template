@@ -4,8 +4,14 @@ import torch.nn.functional as F
 from torchmetrics.functional import accuracy
 import pytorch_lightning as pl
 from typing import Tuple
+import torch.nn.init as init
 
 class LitCNN(pl.LightningModule):
+    
+    def weight_init(self, m):
+        if isinstance(m, nn.Linear):
+            init.kaiming_uniform_(m.weight.data)
+
     def __init__(self):
         super().__init__()
         self.fc1 = nn.Linear(28*28, 512)
@@ -15,7 +21,8 @@ class LitCNN(pl.LightningModule):
         self.dropout_prob = 0.5
         self.batch_norm1 = nn.BatchNorm1d(512)
         self.batch_norm2 = nn.BatchNorm1d(256)
-    
+        self.apply(self.weight_init)
+
     def forward(self, x):
         batch_size, channel, width, height = x.size()
         x = x.view(batch_size, -1)
