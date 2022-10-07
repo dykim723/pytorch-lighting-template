@@ -18,10 +18,10 @@ class LitCNN(pl.LightningModule):
         batch_size, channel, width, height = x.size()
         x = x.view(batch_size, -1)
         x = self.fc1(x)
-        x = torch.sigmoid(x)
+        x = F.relu(x)
         x = F.dropout(x, p=self.dropout_prob)
         x = self.fc2(x)
-        x = torch.sigmoid(x)
+        x = F.relu(x)
         x = F.dropout(x, p=self.dropout_prob)
         x = self.fc3(x)
         x = F.log_softmax(x, dim=1)
@@ -36,9 +36,7 @@ class LitCNN(pl.LightningModule):
     def evaluate(self, batch, stage=None):
         
         x, y = batch
-        print(torch.tensor(y))
         logits = self.forward(x)
-        print(logits.shape)
         loss = self.criterion(logits, y)
         preds = torch.argmax(logits, dim=1)
         acc = accuracy(preds, y)
