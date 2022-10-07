@@ -12,14 +12,17 @@ class LitCNN(pl.LightningModule):
         self.fc2 = nn.Linear(512, 256)
         self.fc3 = nn.Linear(256, 10)
         self.criterion = F.nll_loss
+        self.dropout_prob = 0.5
     
     def forward(self, x):
         batch_size, channel, width, height = x.size()
         x = x.view(batch_size, -1)
         x = self.fc1(x)
         x = torch.sigmoid(x)
+        x = F.dropout(x, p=self.dropout_prob)
         x = self.fc2(x)
         x = torch.sigmoid(x)
+        x = F.dropout(x, p=self.dropout_prob)
         x = self.fc3(x)
         x = F.log_softmax(x, dim=1)
         return x

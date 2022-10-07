@@ -9,6 +9,6 @@ mnistDM.prepare_data()
 mnistDM.setup('fit')
 
 m = LitCNN()
-trainer = pl.Trainer(max_epochs=1)
+trainer = pl.Trainer(max_epochs=10)
 trainer.fit(model=m, datamodule=mnistDM)
 
